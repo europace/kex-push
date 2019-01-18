@@ -2,14 +2,14 @@
 
 Ein externer Client (public subscriber) registriert sich bei EUROPACE und erhält im Gegenzug Zertifikate, um damit eine Verbindung zu AWS aufnehmen zu können. Für Echtgeschäft und Testumgebung werden getrennte Zertifikate ausgestellt.
 
-> Die Zertifikate erhalten Sie von Ihrem Ansprechpartner im KreditSmart-Team. 
+Die Zertifikate erhalten Sie von Ihrem Ansprechpartner im **Kredit**Smart-Team. 
 
 [AWS](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/aws-iot-how-it-works.html) versorgt den Client mit Nachrichten anhand von:
 
 - [Topic Subscription](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/topics.html)
 - Konfigurationsänderungen ([Device Shadow](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/iot-device-shadows.html))
 
-Wir bewahren keine Push-Nachrichten in KreditSmart auf. Daher gehen Nachrichten in den Zeiträumen verloren, in denen kein Subscriber für die jeweiligen Topics mit AWS verbunden ist.
+Wir bewahren keine Push-Nachrichten in **Kredit**Smart auf. Daher gehen Nachrichten in den Zeiträumen verloren, in denen kein Subscriber für die jeweiligen Topics mit AWS verbunden ist.
 
 ## Der Partnerbaum als Topic
 
@@ -46,4 +46,4 @@ Zu den Attributen im Detail:
 
 - `quellsystem`:
 
-  Derzeit wird als Quellsystem stets `KREDITSMART` eingetragen. Das Attribut ist für zukünftige Erweiterungen über KreditSmart hinaus vorgesehen.
+  Derzeit wird als Quellsystem stets `KREDITSMART` eingetragen. Das Attribut ist für zukünftige Erweiterungen über **Kredit**Smart hinaus vorgesehen.
