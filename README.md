@@ -9,8 +9,6 @@ Die Zertifikate erhalten Sie von Ihrem Ansprechpartner im **Kredit**Smart-Team.
 - [Topic Subscription](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/topics.html)
 - Konfigurationsänderungen ([Device Shadow](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/iot-device-shadows.html))
 
-Wir bewahren keine Push-Nachrichten in **Kredit**Smart auf. Daher gehen Nachrichten in den Zeiträumen verloren, in denen kein Subscriber für die jeweiligen Topics mit AWS verbunden ist.
-
 ## Der Partnerbaum als Topic
 
 Ein Subscriber darf mit seinem Zertifikat alle Topics für Plaketten im Partnerbaum unterhalb seiner eigenen Plakette und für sich selbst empfangen. Zusätzlich darf ein Client sein Shadow-Document abfragen. Dieses informiert über das größtmöglich erlaubte Topic. Sollte sich das Topic ändern - z.B. durch Umorganisation im Partnerbaum - muss der Client geeignet reagieren. Hier empfiehlt sich ein `unsubsribe` und ein `subscribe` mit dem neuen Topic.
@@ -47,3 +45,11 @@ Zu den Attributen im Detail:
 - `quellsystem`:
 
   Derzeit wird als Quellsystem stets `KREDITSMART` eingetragen. Das Attribut ist für zukünftige Erweiterungen über **Kredit**Smart hinaus vorgesehen.
+
+## Auslöser und Frequenz von Push-Nachrichten
+
+Eine Nachricht wird unabhängig von der Art der Änderung eines Vorgangs oder eines Antrags verschickt. Je nach Aktivität am Vorgang ergibt sich daraus eine entsprechende Frequenz an Push-Nachrichten.
+
+Wir aggregieren derzeit keine Nachrichten, d.h. Clients sind selbst dafür verantwortlich die über AWS potentiell eingehende Last zu verarbeiten.
+
+In **Kredit**Smart werden keine Push-Nachrichten aufbewahrt. Daher gehen Nachrichten in den Zeiträumen verloren, in denen kein Subscriber für die jeweiligen Topics mit AWS verbunden ist.
