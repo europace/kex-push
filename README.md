@@ -7,7 +7,7 @@ Ein externer Client (public subscriber) registriert sich bei EUROPACE und erhäl
 - [Topic Subscription](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/topics.html)
 - Konfigurationsänderungen ([Device Shadow](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/iot-device-shadows.html))
 
-> Die Zertifikate erhalten Sie von Ihrem Ansprechpartner im Kredit**Smart**-Team. 
+> Die Zertifikate erhalten Sie von Ihrem Ansprechpartner im **Kredit**Smart-Team. 
 
 ## Der Partnerbaum als Topic
 
@@ -44,4 +44,4 @@ Zu den Attributen im Detail:
 
 - `quellsystem`:
 
-  Derzeit wird als Quellsystem stets `KREDITSMART` eingetragen. Das Attribut ist für zukünftige Erweiterungen über Kredit**Smart** hinaus vorgesehen.
+  Derzeit wird als Quellsystem stets `KREDITSMART` eingetragen. Das Attribut ist für zukünftige Erweiterungen über **Kredit**Smart hinaus vorgesehen.
