@@ -2,7 +2,7 @@
 
 Ein externer Client (public subscriber) registriert sich bei EUROPACE und erhält im Gegenzug Zertifikate, um damit eine Verbindung zu AWS herstellen zu können. Für Echtgeschäft und Testumgebung werden getrennte Zertifikate ausgestellt.
 
-Die Zertifikate erhalten Sie von Ihrem Ansprechpartner im **Kredit**Smart-Team. 
+Die Zertifikate erhalten Sie von Ihrem Ansprechpartner im KreditSmart-Team. 
 
 [AWS](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/aws-iot-how-it-works.html) versorgt den Client mit Nachrichten anhand von:
 
@@ -44,7 +44,7 @@ Zu den Attributen im Detail:
 
 - `quellsystem`:
 
-  Derzeit wird als Quellsystem stets `KREDITSMART` eingetragen. Das Attribut ist für zukünftige Erweiterungen über **Kredit**Smart hinaus vorgesehen.
+  Derzeit wird als Quellsystem stets `KREDITSMART` eingetragen. Das Attribut ist für zukünftige Erweiterungen über KreditSmart hinaus vorgesehen.
 
 ## Auslöser und Frequenz von Push-Nachrichten
 
@@ -52,4 +52,4 @@ Eine Nachricht wird unabhängig von der Art der Änderung eines Vorgangs oder ei
 
 Wir aggregieren derzeit keine Nachrichten, d.h. Clients sind selbst dafür verantwortlich die über AWS potentiell eingehende Last zu verarbeiten.
 
-In **Kredit**Smart werden keine Push-Nachrichten aufbewahrt. Daher gehen Nachrichten in den Zeiträumen verloren, in denen kein Subscriber für die jeweiligen Topics mit AWS verbunden ist.
+In KreditSmart werden keine Push-Nachrichten aufbewahrt. Daher gehen Nachrichten in den Zeiträumen verloren, in denen kein Subscriber für die jeweiligen Topics mit AWS verbunden ist.
