@@ -1,13 +1,13 @@
 # Push-Mechanismus für Vorgangsänderungen in KreditSmart
 
-Ein externer Client (public subscriber) registriert sich bei EUROPACE und erhält im Gegenzug AWS-Credentials, um dann eine Verbindung zu AWS aufnehmen zu können.
+Ein externer Client (public subscriber) registriert sich bei EUROPACE und erhält im Gegenzug Zertifikate, um damit eine Verbindung zu AWS aufnehmen zu können.
 
 [AWS](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/aws-iot-how-it-works.html) versorgt den Client mit Nachrichten anhand von:
 
 - [Topic Subscription](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/topics.html)
 - Konfigurationsänderungen ([Device Shadow](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/iot-device-shadows.html))
 
-> Die AWS-Credentials erhalten Sie von Ihrem Ansprechpartner im Kredit**Smart**-Team. 
+> Die Zertifikate erhalten Sie von Ihrem Ansprechpartner im Kredit**Smart**-Team. 
 
 ## Der Partnerbaum als Topic
 
