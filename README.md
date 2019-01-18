@@ -1,6 +1,6 @@
 # Push-Mechanismus für Vorgangsänderungen in KreditSmart
 
-Ein externer Client (public subscriber) registriert sich bei EUROPACE und erhält im Gegenzug Zertifikate, um damit eine Verbindung zu AWS aufnehmen zu können. Für Echtgeschäft und Testumgebung werden getrennte Zertifikate ausgestellt.
+Ein externer Client (public subscriber) registriert sich bei EUROPACE und erhält im Gegenzug Zertifikate, um damit eine Verbindung zu AWS herstellen zu können. Für Echtgeschäft und Testumgebung werden getrennte Zertifikate ausgestellt.
 
 Die Zertifikate erhalten Sie von Ihrem Ansprechpartner im **Kredit**Smart-Team. 
 
