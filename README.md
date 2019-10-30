@@ -15,6 +15,8 @@ Ein Subscriber darf mit seinem Zertifikat alle Topics für Plaketten im Partnerb
 
 Für das Topic gelten in [AWS Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#iot-protocol-limits), die beispielsweise eine Tiefe von maximal 7 Ebenen erlaubt.
 
+Um Vorgangsänderungen nicht nur für die eigenen Plakette, sondern auch für alle Personen und Organisationen unterhalb der eigenen Plakette zu empfangen, muss in der Subscriber-Implementierung darauf geachtet werden, dass eine Raute `#` als Platzhalter am Topic ergänzt wird. Wird also ein Zertifikat auf das Topic `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3` ausgestellt, dann wird im Subscriber das Topic auf `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3/#` konfiguriert. In der Dokumentation zur [Topic Subscription](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/topics.html) werden die Möglichkeiten im Detail erläutert.
+
 ## Payload Message Format
 
 Im Body wird eine Payload als JSON in folgendem Format verschickt:
@@ -56,6 +58,5 @@ In KreditSmart werden keine Push-Nachrichten aufbewahrt. Daher gehen Nachrichten
 
 ## Client-Implementierung
 
-Für die Implementierung und Konfiguration eines MQTT Clients gibt es eine Vielzahl von Beispiel-Implementierungen. AWS bietet selbst ein passendes Java-SDK an,
-das unter [github.com/aws/aws-iot-device-sdk-java](https://github.com/aws/aws-iot-device-sdk-java#use-the-sdk) inklusive Beispiel-Code dokumentiert ist.
-
+Für die Implementierung und Konfiguration eines MQTT Clients gibt es eine Vielzahl von Beispiel-Implementierungen.
+AWS bietet selbst ein passendes Java-SDK an, das unter [github.com/aws/aws-iot-device-sdk-java](https://github.com/aws/aws-iot-device-sdk-java#use-the-sdk) inklusive Beispiel-Code dokumentiert ist.
