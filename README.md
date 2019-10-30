@@ -15,7 +15,7 @@ Ein Subscriber darf mit seinem Zertifikat alle Topics für Plaketten im Partnerb
 
 Für das Topic gelten in [AWS Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#iot-protocol-limits), die beispielsweise eine Tiefe von maximal 7 Ebenen erlaubt.
 
-Um Vorgangsänderungen nicht nur für die eigenen Plakette, sondern auch für alle Personen und Organisationen unterhalb der eigenen Plakette zu empfangen, muss in der Subscriber-Implementierung darauf geachtet werden, dass eine Raute `#` als Platzhalter am Topic ergänzt wird. Wird also ein Zertifikat auf das Topic `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3` ausgestellt, dann wird im Subscriber das Topic auf `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3/#` konfiguriert. In der Dokumentation zur [Topic Subscription](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/topics.html) werden die Möglichkeiten im Detail erläutert.
+Um Vorgangsänderungen nicht nur für die eigene Plakette, sondern auch für alle Personen und Organisationen _unterhalb_ der eigenen Plakette zu empfangen, muss in der Subscriber-Implementierung darauf geachtet werden, dass eine Raute `#` als Platzhalter am Topic ergänzt wird. Wird also ein Zertifikat auf das Topic `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3` ausgestellt, dann wird im Subscriber das Topic auf `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3/#` konfiguriert. In der Dokumentation zur [Topic Subscription](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/topics.html) werden die Möglichkeiten im Detail erläutert.
 
 ## Payload Message Format
 
