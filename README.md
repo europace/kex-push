@@ -60,3 +60,7 @@ In KreditSmart werden keine Push-Nachrichten aufbewahrt. Daher gehen Nachrichten
 
 Für die Implementierung und Konfiguration eines MQTT Clients gibt es eine Vielzahl von Beispiel-Implementierungen.
 AWS bietet selbst ein passendes Java-SDK an, das unter [github.com/aws/aws-iot-device-sdk-java](https://github.com/aws/aws-iot-device-sdk-java#use-the-sdk) inklusive Beispiel-Code dokumentiert ist.
+
+## Nutzungsbedingungen
+Die APIs werden unter folgenden [Nutzungsbedingungen](https://developer.europace.de/terms/) zur Verfügung gestellt
+
