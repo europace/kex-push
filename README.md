@@ -2,7 +2,7 @@
 
 Ein externer Client (public subscriber) registriert sich bei EUROPACE und erhält im Gegenzug Zertifikate, um damit eine Verbindung zu AWS herstellen zu können. Für Echtgeschäft und Testumgebung werden getrennte Zertifikate ausgestellt.
 
-Die Zertifikate erhalten Sie von Ihrem Ansprechpartner im KreditSmart-Team. 
+Die Zertifikate erhalten Sie von Ihrem Ansprechpartner im KreditSmart-Team.
 
 [AWS](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/aws-iot-how-it-works.html) versorgt den Client mit Nachrichten anhand von:
 
@@ -36,7 +36,7 @@ Zu den Attributen im Detail:
 
   Sowohl bei Änderungen im Vorgang als auch im Antrag wird in einer KEX-PUSH Message stets nur die Vorgangsnummer übermittelt.
 
-- `kundenbetreuerPartnerbaum`: 
+- `kundenbetreuerPartnerbaum`:
 
   Wegen der [Limitierung des Topics](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#iot-protocol-limits) auf maximal 7 Ebenen kann je nach Tiefe der Partnerstruktur ein Topic abgeschnitten werden. Um dem Subscriber dennoch Auskunft über den aktuellen Kundenbetreuer geben zu können, enthält der `kundenbetreuerPartnerbaum` die vollständige Partnerstruktur.
 
@@ -62,5 +62,4 @@ Für die Implementierung und Konfiguration eines MQTT Clients gibt es eine Vielz
 AWS bietet selbst ein passendes Java-SDK an, das unter [github.com/aws/aws-iot-device-sdk-java](https://github.com/aws/aws-iot-device-sdk-java#use-the-sdk) inklusive Beispiel-Code dokumentiert ist.
 
 ## Nutzungsbedingungen
-Die APIs werden unter folgenden [Nutzungsbedingungen](https://developer.europace.de/terms/) zur Verfügung gestellt
-
+Die APIs werden unter folgenden [Nutzungsbedingungen](https://docs.api.europace.de/nutzungsbedingungen/) zur Verfügung gestellt
