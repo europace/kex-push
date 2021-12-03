@@ -1,25 +1,27 @@
-# Push-Mechanismus für Vorgangsänderungen in KreditSmart
+# Push-Mechanism for Changes to Vorgänge in KreditSmart
 
-Ein externer Client (public subscriber) registriert sich bei EUROPACE und erhält im Gegenzug Zertifikate, um damit eine Verbindung zu AWS herstellen zu können. Für Echtgeschäft und Testumgebung werden getrennte Zertifikate ausgestellt.
+> ⚠️ You'll find German domain-terms in the documentation, for translations and further explanations please refer to our [glossary](https://docs.api.europace.de/common/glossary/)
 
-Die Zertifikate erhalten Sie von Ihrem Ansprechpartner im KreditSmart-Team.
+An external client (public subscriber) registers at EUROPACE und receives certificates to be able establish a connection to AWS. For Echtgeschäft and Testumgebung you will receive separate certificates.
 
-[AWS](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/aws-iot-how-it-works.html) versorgt den Client mit Nachrichten anhand von:
+You can get the certificates from your contact in the KreditSmart team.
 
-- [Topic Subscription](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/topics.html)
-- Konfigurationsänderungen ([Device Shadow](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/iot-device-shadows.html))
+[AWS](https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html) notifies the client based on:
 
-## Der Partnerbaum als Topic
+- [Topic Subscription](https://docs.aws.amazon.com/iot/latest/developerguide/topics.html)
+- configuration changes ([Device Shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html))
 
-Ein Subscriber darf mit seinem Zertifikat alle Topics für Plaketten im Partnerbaum unterhalb seiner eigenen Plakette und für sich selbst empfangen. Zusätzlich darf ein Client sein Shadow-Document abfragen. Dieses informiert über das größtmöglich erlaubte Topic. Sollte sich das Topic ändern - z.B. durch Umorganisation im Partnerbaum - muss der Client geeignet reagieren. Hier empfiehlt sich ein `unsubsribe` und ein `subscribe` mit dem neuen Topic.
+## The Partner tree as Topic
 
-Für das Topic gelten in [AWS Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#iot-protocol-limits), die beispielsweise eine Tiefe von maximal 7 Ebenen erlaubt.
+A Subscriber is allowed to receive all topics for Plaketten in the Partner tree underneath their own Plakette and for themselves. In addition the client is allowed to request a shadow document. This document povides you with the highest possible Topic. Should a topic change - e.g. due to restruring inside the partner tree - the client has to react appropriately. It is recommended to then `unsubsribe` to the old topic and `subscribe` to the new topic..
 
-Um Vorgangsänderungen nicht nur für die eigene Plakette, sondern auch für alle Personen und Organisationen _unterhalb_ der eigenen Plakette zu empfangen, muss in der Subscriber-Implementierung darauf geachtet werden, dass eine Raute `#` als Platzhalter am Topic ergänzt wird. Wird also ein Zertifikat auf das Topic `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3` ausgestellt, dann wird im Subscriber das Topic auf `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3/#` konfiguriert. In der Dokumentation zur [Topic Subscription](https://docs.aws.amazon.com/de_de/iot/latest/developerguide/topics.html) werden die Möglichkeiten im Detail erläutert.
+For the topics the [AWS Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#iot-protocol-limits) apply, for example the depth can be a maximum of 7 layers.
+
+To receive changes not only for the own Plakette but for all other Plaketten _underneath_ the own Plakette you need to keep in mind to use a hash `#` as a placeholder. For example is your ceteficate valid for the topic `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3` the subscriber needs to be configured for the topic `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3/#`. More details about this you can find in the documentation to [Topic Subscription](https://docs.aws.amazon.com/iot/latest/developerguide/topics.html).
 
 ## Payload Message Format
 
-Im Body wird eine Payload als JSON in folgendem Format verschickt:
+The message body contains a payload in JSON format:
 
 ```
 {
@@ -30,36 +32,36 @@ Im Body wird eine Payload als JSON in folgendem Format verschickt:
 }
 ```
 
-Zu den Attributen im Detail:
+More details to the attributes:
 
 - `vorgangsnummer`:
 
-  Sowohl bei Änderungen im Vorgang als auch im Antrag wird in einer KEX-PUSH Message stets nur die Vorgangsnummer übermittelt.
+  For changes in either Vorgang or Antrag the KEX-PUSH message always only contains the Vorgangsnummer.
 
 - `kundenbetreuerPartnerbaum`:
 
-  Wegen der [Limitierung des Topics](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#iot-protocol-limits) auf maximal 7 Ebenen kann je nach Tiefe der Partnerstruktur ein Topic abgeschnitten werden. Um dem Subscriber dennoch Auskunft über den aktuellen Kundenbetreuer geben zu können, enthält der `kundenbetreuerPartnerbaum` die vollständige Partnerstruktur.
+  Because of the [limits for Topics](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#iot-protocol-limits) to a maximium of 7 it can happen that a topic gets cut off if the corresponding Partner tree is too deep. To still be able to notify the subscriber about a Kundenbetreuer, the property `kundenbetreuerPartnerbaum` contains the full tree.
 
 - `letztesAenderungsDatum`:
 
-  Das übermittelte Änderungsdatum entspricht dem aktuellen Zeitstempel beim Versand der Message.
+  This property is always the current timestamp at the time the message was sent.
 
 - `quellsystem`:
 
-  Derzeit wird als Quellsystem stets `KREDITSMART` eingetragen. Das Attribut ist für zukünftige Erweiterungen über KreditSmart hinaus vorgesehen.
+  Currently only `KREDITSMART` is supported as a possible source. This property is added as a preparation for future expansions.
 
-## Auslöser und Frequenz von Push-Nachrichten
+## Trigger and frequency of push notifications
 
-Eine Nachricht wird unabhängig von der Art der Änderung eines Vorgangs oder eines Antrags verschickt. Je nach Aktivität am Vorgang ergibt sich daraus eine entsprechende Frequenz an Push-Nachrichten.
+A message will be publish regardless if the Vorgang or Antrag is updated. Therefore the activity in the Vorgang is responsible for the frequency of push notifications.
 
-Wir aggregieren derzeit keine Nachrichten, d.h. Clients sind selbst dafür verantwortlich die über AWS potentiell eingehende Last zu verarbeiten.
+Currently we do not aggregate any messages, that means the client is responsible for processing the potential load of messages.
 
-In KreditSmart werden keine Push-Nachrichten aufbewahrt. Daher gehen Nachrichten in den Zeiträumen verloren, in denen kein Subscriber für die jeweiligen Topics mit AWS verbunden ist.
+KreditSmart does not save any push notifications. That means if there is no history of messages in intervals a subscriber is not connected to the topics.
 
-## Client-Implementierung
+## Client-Implementation
 
-Für die Implementierung und Konfiguration eines MQTT Clients gibt es eine Vielzahl von Beispiel-Implementierungen.
-AWS bietet selbst ein passendes Java-SDK an, das unter [github.com/aws/aws-iot-device-sdk-java](https://github.com/aws/aws-iot-device-sdk-java#use-the-sdk) inklusive Beispiel-Code dokumentiert ist.
+There are a numver of different examples for how to implement and configure a MQTT client.
+AWS provides a Java-SDK which is documented under [github.com/aws/aws-iot-device-sdk-java](https://github.com/aws/aws-iot-device-sdk-java#use-the-sdk) including sample code.
 
-## Nutzungsbedingungen
-Die APIs werden unter folgenden [Nutzungsbedingungen](https://docs.api.europace.de/nutzungsbedingungen/) zur Verfügung gestellt
+## Terms of use
+The APIs are made available under the following [Terms of Use](https://docs.api.europace.de/terms/).
