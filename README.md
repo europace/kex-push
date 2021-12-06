@@ -52,7 +52,7 @@ More details about the attributes:
 
 ## Trigger and frequency of push notifications
 
-A message will be publish regardless if the Vorgang or Antrag is updated. Therefore the activity in the Vorgang is responsible for the frequency of push notifications.
+A message will be published for arbitrary changes in a Vorgang or Antrag. Therefore the activity in the Vorgang is responsible for the frequency of push notifications.
 
 Currently we do not aggregate or deduplicate any messages, so the client is responsible for handling the potential load of messages.
 
