@@ -60,7 +60,7 @@ KreditSmart does not save any push notifications. That means if there is no hist
 
 ## Client-Implementation
 
-There are a numver of different examples for how to implement and configure a MQTT client.
+There are a number of different examples of how to implement and configure a MQTT client.
 AWS provides a Java-SDK which is documented under [github.com/aws/aws-iot-device-sdk-java](https://github.com/aws/aws-iot-device-sdk-java#use-the-sdk) including sample code.
 
 ## Terms of use
