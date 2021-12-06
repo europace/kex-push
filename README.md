@@ -32,7 +32,7 @@ The message body contains a payload in JSON format:
 }
 ```
 
-More details to the attributes:
+More details about the attributes:
 
 - `vorgangsnummer`:
 
