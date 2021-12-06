@@ -56,7 +56,7 @@ A message will be publish regardless if the Vorgang or Antrag is updated. Theref
 
 Currently we do not aggregate any messages, that means the client is responsible for processing the potential load of messages.
 
-KreditSmart does not save any push notifications. That means if there is no history of messages in intervals a subscriber is not connected to the topics.
+KreditSmart and the AWS broker don't store any push notifications. Consequently, a subscriber won't receive messages during unconnected time intervals.
 
 ## Client-Implementation
 
