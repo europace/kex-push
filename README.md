@@ -17,7 +17,7 @@ A Subscriber is allowed to receive all topics for Plaketten in the Partner tree 
 
 For the topics the [AWS Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#iot-protocol-limits) apply, for example the depth can be a maximum of 7 layers.
 
-To receive changes not only for the own Plakette but for all other Plaketten _underneath_ the own Plakette you need to keep in mind to use a hash `#` as a placeholder. For example is your ceteficate valid for the topic `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3` the subscriber needs to be configured for the topic `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3/#`. More details about this you can find in the documentation to [Topic Subscription](https://docs.aws.amazon.com/iot/latest/developerguide/topics.html).
+To receive changes not only for the own Plakette but for all other Plaketten _underneath_ the own Plakette you need to keep in mind to use a hash `#` as a wildcard. For example is your certificate valid for the topic `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3` the subscriber needs to be configured for the topic `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3/#`. You can find more details in the developer guide about [Topic Subscription](https://docs.aws.amazon.com/iot/latest/developerguide/topics.html).
 
 ## Payload Message Format
 
