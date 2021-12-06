@@ -40,7 +40,7 @@ More details about the attributes:
 
 - `kundenbetreuerPartnerbaum`:
 
-  Because of the [limits for Topics](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#iot-protocol-limits) to a maximium of 7 it can happen that a topic gets cut off if the corresponding Partner tree is too deep. To still be able to notify the subscriber about a Kundenbetreuer, the property `kundenbetreuerPartnerbaum` contains the full tree.
+  Because of the [limits for Topics](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#iot-protocol-limits) to a maximium of 7 it can happen that a topic gets cut off if the corresponding Partner tree is too deep. To still be able to notify the subscriber about a Kundenbetreuer, the property `kundenbetreuerPartnerbaum` contains the complete tree.
 
 - `letztesAenderungsDatum`:
 
