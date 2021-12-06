@@ -54,7 +54,7 @@ More details about the attributes:
 
 A message will be publish regardless if the Vorgang or Antrag is updated. Therefore the activity in the Vorgang is responsible for the frequency of push notifications.
 
-Currently we do not aggregate any messages, that means the client is responsible for processing the potential load of messages.
+Currently we do not aggregate or deduplicate any messages, so the client is responsible for handling the potential load of messages.
 
 KreditSmart and the AWS broker don't store any push notifications. Consequently, a subscriber won't receive messages during unconnected time intervals.
 
