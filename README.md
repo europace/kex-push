@@ -48,7 +48,7 @@ More details about the attributes:
 
 - `quellsystem`:
 
-  Currently only `KREDITSMART` is supported as a possible source. This property is added as a preparation for future expansions.
+  Currently only `KREDITSMART` is supported as a possible event source. The property is added to be future proof for possible expansion in other areas of the platform.
 
 ## Trigger and frequency of push notifications
 
