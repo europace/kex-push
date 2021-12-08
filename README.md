@@ -11,9 +11,9 @@ You can get the certificates from your contact in the KreditSmart team.
 - [Topic Subscription](https://docs.aws.amazon.com/iot/latest/developerguide/topics.html)
 - configuration changes ([Device Shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html))
 
-## The Partner tree as Topic
+## The partner tree as Topic
 
-A Subscriber is allowed to receive all topics for Plaketten in the Partner tree underneath their own Plakette and for themselves. In addition the client is allowed to request a shadow document. This document povides you with the highest possible Topic. Should a topic change - e.g. due to restruring inside the partner tree - the client has to react appropriately. It is recommended to then `unsubsribe` to the old topic and `subscribe` to the new topic..
+A Subscriber is allowed to receive all topics for Plaketten in the partner tree underneath their own Plakette and for themselves. In addition the client is allowed to request a shadow document. This document povides you with the highest possible Topic. Should a topic change - e.g. due to restruring inside the partner tree - the client has to react appropriately. It is recommended to then `unsubsribe` to the old topic and `subscribe` to the new topic..
 
 For the topics the [AWS Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#iot-protocol-limits) apply, for example the depth can be a maximum of 7 layers.
 
@@ -40,7 +40,7 @@ More details about the attributes:
 
 - `kundenbetreuerPartnerbaum`:
 
-  Because of the [limits for Topics](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#iot-protocol-limits) to a maximium of 7 it can happen that a topic gets cut off if the corresponding Partner tree is too deep. To still be able to notify the subscriber about a Kundenbetreuer, the property `kundenbetreuerPartnerbaum` contains the complete tree.
+  Because of the [limits for Topics](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#iot-protocol-limits) to a maximium of 7 it can happen that a topic gets cut off if the corresponding partner tree is too deep. To still be able to notify the subscriber about a Kundenbetreuer, the property `kundenbetreuerPartnerbaum` contains the full tree.
 
 - `letztesAenderungsDatum`:
 
