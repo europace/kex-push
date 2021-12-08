@@ -1,4 +1,4 @@
-# Push-Mechanism for Changes to Vorgänge in KreditSmart
+# Push-Mechanism for changes to Vorgänge in KreditSmart
 
 > ⚠️ You'll find German domain-specific terms in the documentation, for translations and further explanations please refer to our [glossary](https://docs.api.europace.de/common/glossary/)
 
@@ -11,17 +11,17 @@ You can get the certificates from your KreditSmart contact.
 - [Topic Subscription](https://docs.aws.amazon.com/iot/latest/developerguide/topics.html)
 - configuration changes ([Device Shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html))
 
-## The partner tree as Topic
+## The partner tree as topic
 
-A Subscriber is allowed to receive all topics for Plaketten in the partner tree underneath their own Plakette and for themselves. In addition the client is allowed to request a shadow document. This document povides you with the highest possible Topic. Should a topic change - e.g. due to restruring inside the partner tree - the client has to react appropriately. It is recommended to then `unsubsribe` to the old topic and `subscribe` to the new topic..
+A Subscriber is allowed to receive all topics for Plaketten in the partner tree underneath their own Plakette and for themselves. In addition the client is allowed to request a shadow document. This document povides you with the highest possible topic. Should a topic change - e.g. due to restructuring inside the partner tree - the client has to react appropriately. It is recommended to then `unsubscribe` to the old topic and `subscribe` to the new topic.
 
 For the topics the [AWS Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#iot-protocol-limits) apply, for example the depth can be a maximum of 7 layers.
 
-To receive changes not only for the own Plakette but for all other Plaketten _underneath_ the own Plakette you need to keep in mind to use a hash `#` as a wildcard. For example is your certificate valid for the topic `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3` the subscriber needs to be configured for the topic `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3/#`. You can find more details in the developer guide about [Topic Subscription](https://docs.aws.amazon.com/iot/latest/developerguide/topics.html).
+To receive changes not only for your own Plakette but for all other Plaketten _underneath_ your own Plakette you need to use a hash `#` as a wildcard. For example, if your certificate is valid for the topic `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3` the subscriber needs to be configured for the topic `ECHTGESCHAEFT/PARTNER1/PARTNER2/PARTNER3/#`. You can find more details in the developer guide about [Topic Subscription](https://docs.aws.amazon.com/iot/latest/developerguide/topics.html).
 
 ## Payload Message Format
 
-The message body contains a payload in JSON format:
+The message body contains the payload as JSON:
 
 ```
 {
@@ -60,7 +60,7 @@ KreditSmart and the AWS broker don't store any push notifications. Consequently,
 
 ## Client-Implementation
 
-There are a number of different examples of how to implement and configure a MQTT client.
+There are a number of different examples of how to implement and configure an MQTT client.
 AWS provides a Java-SDK which is documented at [github.com/aws/aws-iot-device-sdk-java](https://github.com/aws/aws-iot-device-sdk-java#use-the-sdk) including sample code.
 
 ## Terms of use
