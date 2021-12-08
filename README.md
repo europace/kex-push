@@ -4,7 +4,7 @@
 
 An external client (public subscriber) registers at EUROPACE und receives certificates to establish a connection to the broker in AWS. For Echtgeschäft and Testumgebung you will receive separate certificates.
 
-You can get the certificates from your contact in the KreditSmart team.
+You can get the certificates from your KreditSmart contact.
 
 [AWS](https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html) notifies the client based on:
 
