@@ -88,6 +88,8 @@ cutover.
 
 ## Legacy Way (AWS)
 
+The legacy approach for receiving push notifications via MQTT will be deprecated soon (exact date tbd) and is no longer supported for new customers. New customers should use webhooks instead, as described above.
+
 An external client (public subscriber) registers at EUROPACE und receives certificates to establish a connection to the broker in AWS. For Echtgeschäft and Testumgebung you will receive separate certificates.
 
 You can get the certificates from your KreditSmart contact.
