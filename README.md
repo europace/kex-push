@@ -39,8 +39,8 @@ fields.
 ### Signature verification
 
 Every request carries `X-SIGNATURE = base64(HMAC_SHA256(shared_secret, raw_body))`.
-Verifying it is optional but recommended — it lets you confirm the request
-actually came from us. If you verify, reject any request where the header is
+Verifying it is optional but **strongly** recommended — it lets you confirm the request
+actually came from us. Reject any request where the header is
 missing or does not match.
 
 - Sign the **raw request body bytes** exactly as received — do not
@@ -75,7 +75,7 @@ Per data context you want to enable, send us following information to kredit.hel
 
 - **Webhook URL** — the HTTPS URL to POST to.
 - **Shared secret** — a high-entropy random string (≥ 32 bytes of entropy,
-  e.g. 32 random bytes base64- or hex-encoded).
+  e.g. 32 random bytes base64- or hex-encoded. Example command to generate: `openssl rand -base64 32`).
 - **Datenkontext** — `TESTUMGEBUNG` and/or `ECHTGESCHAEFT`.
 - **Partner ID** — your partner ID; we can look this up if unsure.
 
